@@ -155,5 +155,3 @@ None. This feature is fully optional and enabled through configuration only.
 - This implementation prioritizes correctness and ease of use over extreme performance
 - For very high throughput scenarios, consider external solutions like Envoy or Nginx
 - The proxy respects the framework's rate limiting, authentication, and logging systems
-
-Co-Authored-By: Oz <oz-agent@warp.dev>
