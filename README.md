@@ -23,6 +23,7 @@
 1. 支持 生成数据表 CURD、控制器方法 等代码生成器
 1. 支持 [cron](https://github.com/jakecoffman/cron) 定时任务，在后台可界面配置
 1. 支持 [websocket](https://github.com/gorilla/websocket) 实时通讯，在后台有界面演示
+1. 支持 [gRPC](https://google.golang.org/grpc) 服务，包含健康检查和示例服务
 1. 支持 web 界面，使用的 [Light Year Admin 模板](https://gitee.com/yinqi/Light-Year-Admin-Using-Iframe)
 说明：
 - 当前仓库主干功能以 HTTP/REST、GraphQL、WebSocket 为主，暂未内置 gRPC 服务端或 `.proto` 定义。
