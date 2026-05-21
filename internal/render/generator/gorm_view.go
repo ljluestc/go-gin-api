@@ -19,6 +19,11 @@ func (h *handler) GormView() core.HandlerFunc {
 
 		var tableCollect []tableInfo
 
+		if h.db == nil {
+			c.HTML("generator_gorm", tableCollect)
+			return
+		}
+
 		mysqlConf := configs.Get().MySQL.Read
 		sqlTables := fmt.Sprintf("SELECT `table_name`,`table_comment` FROM `information_schema`.`tables` WHERE `table_schema`= '%s'", mysqlConf.Name)
 		rows, err := h.db.GetDbR().Raw(sqlTables).Rows()

@@ -23,6 +23,11 @@ func (h *handler) GormExecute() core.HandlerFunc {
 	gormgenBat := projectPath + "/scripts/gormgen.bat"
 
 	return func(c core.Context) {
+		if h.db == nil {
+			c.Payload("数据库未初始化，请先完成安装")
+			return
+		}
+
 		req := new(gormExecuteRequest)
 		if err := c.ShouldBindPostForm(req); err != nil {
 			c.Payload("参数传递有误")
