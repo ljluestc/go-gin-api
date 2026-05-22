@@ -10,11 +10,11 @@ package tablesqls
 //`is_deleted` tinyint(1) NOT NULL DEFAULT '-1' COMMENT '是否删除 1:是  -1:否',
 //`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 //`created_user` varchar(60) NOT NULL DEFAULT '' COMMENT '创建人',
-//`updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+//`updated_at` datetime NOT NULL DEFAULT '1970-01-01 00:00:01' COMMENT '更新时间',
 //`updated_user` varchar(60) NOT NULL DEFAULT '' COMMENT '更新人',
 //PRIMARY KEY (`id`),
 //UNIQUE KEY `unique_username` (`username`)
-//) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';
+//) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 func CreateAdminTableSql() (sql string) {
 	sql = "CREATE TABLE `admin` ("
@@ -27,11 +27,11 @@ func CreateAdminTableSql() (sql string) {
 	sql += "`is_deleted` tinyint(1) NOT NULL DEFAULT '-1' COMMENT '是否删除 1:是  -1:否',"
 	sql += "`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',"
 	sql += "`created_user` varchar(60) NOT NULL DEFAULT '' COMMENT '创建人',"
-	sql += "`updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',"
+	sql += "`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',"
 	sql += "`updated_user` varchar(60) NOT NULL DEFAULT '' COMMENT '更新人',"
 	sql += "PRIMARY KEY (`id`),"
 	sql += "UNIQUE KEY `unique_username` (`username`)"
-	sql += ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';"
+	sql += ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员表';"
 
 	return
 }

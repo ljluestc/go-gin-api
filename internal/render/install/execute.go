@@ -114,7 +114,7 @@ func (h *handler) Execute() core.HandlerFunc {
 		// endregion
 
 		// region 验证 MySQL 配置
-		dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=%t&loc=%s",
+		dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
 			req.MySQLUser,
 			req.MySQLPass,
 			req.MySQLAddr,
@@ -138,7 +138,7 @@ func (h *handler) Execute() core.HandlerFunc {
 			return
 		}
 
-		db.Set("gorm:table_options", "CHARSET=utf8mb4")
+		db.Set("gorm:table_options", "CHARSET=utf8")
 
 		dbClient, _ := db.DB()
 		defer dbClient.Close()

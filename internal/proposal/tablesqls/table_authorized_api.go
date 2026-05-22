@@ -8,7 +8,7 @@ package tablesqls
 //`is_deleted` tinyint(1) NOT NULL DEFAULT '-1' COMMENT '是否删除 1:是  -1:否',
 //`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 //`created_user` varchar(60) NOT NULL DEFAULT '' COMMENT '创建人',
-//`updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+//`updated_at` datetime NOT NULL DEFAULT '1970-01-01 00:00:01' COMMENT '更新时间',
 //`updated_user` varchar(60) NOT NULL DEFAULT '' COMMENT '更新人',
 //PRIMARY KEY (`id`)
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='已授权接口地址表';
@@ -22,7 +22,7 @@ func CreateAuthorizedAPITableSql() (sql string) {
 	sql += "`is_deleted` tinyint(1) NOT NULL DEFAULT '-1' COMMENT '是否删除 1:是  -1:否',"
 	sql += "`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',"
 	sql += "`created_user` varchar(60) NOT NULL DEFAULT '' COMMENT '创建人',"
-	sql += "`updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',"
+	sql += "`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',"
 	sql += "`updated_user` varchar(60) NOT NULL DEFAULT '' COMMENT '更新人',"
 	sql += "PRIMARY KEY (`id`)"
 	sql += ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='已授权接口地址表';"
